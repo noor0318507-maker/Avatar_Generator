@@ -1,0 +1,310 @@
+/* Base Resets & Colors */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0f172a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+/* Card Container */
+.card-container {
+    background-color: #1e293b;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 450px;
+    padding: 25px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+    color: #f8fafc;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+/* Avatar Preview Window */
+.avatar-display-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.avatar-circle {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+    border: 4px solid #334155;
+    background-color: #0f172a;
+    /* Consistent fallback placeholder preview window background */
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.avatar-circle img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Pop in micro-interaction class */
+.avatar-pop {
+    transform: scale(0.9);
+    opacity: 0.5;
+}
+
+/* Form inputs styling */
+.control-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+select,
+input[type="text"] {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    color: #f8fafc;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+select:focus,
+input[type="text"]:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+/* Resolution Slider Formatting */
+.label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.badge {
+    font-size: 0.75rem;
+    background-color: #3b82f6;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    background: #0f172a;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #3b82f6;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+/* Format radio selectors */
+.radio-options {
+    display: flex;
+    gap: 20px;
+    padding: 4px 0;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #cbd5e1;
+}
+
+.radio-label input {
+    cursor: pointer;
+    accent-color: #3b82f6;
+}
+
+/* Action Buttons Group Layout */
+.button-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 400px) {
+    .button-group {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.btn {
+    width: 100%;
+    padding: 12px 4px;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    transition: transform 0.1s ease, filter 0.2s ease;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-primary {
+    background-color: #3b82f6;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    filter: brightness(1.1);
+}
+
+.btn-secondary {
+    background-color: #475569;
+    color: #f8fafc;
+}
+
+.btn-secondary:hover {
+    filter: brightness(1.1);
+}
+
+/* History Toggle Controls Row */
+.toggle-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-toggle {
+    background-color: #334155;
+    color: #cbd5e1;
+    border: 1px solid #475569;
+    padding: 8px 10px;
+    font-size: 0.75rem;
+    width: 100%;
+}
+
+.btn-toggle.active {
+    background-color: #1e293b;
+    border-color: #3b82f6;
+    color: #3b82f6;
+}
+
+/* Hide Utility class */
+.collapsible.hidden {
+    display: none !important;
+}
+
+/* Dice roll keyframes animation */
+@keyframes spinDice {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.rolling .dice-icon {
+    display: inline-block;
+    animation: spinDice 0.4s ease-out;
+}
+
+/* History & Favorites Sections */
+.history-section {
+    border-top: 1px solid #334155;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.history-section h3 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #94a3b8;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.history-grid {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+}
+
+.history-grid::-webkit-scrollbar {
+    height: 4px;
+}
+
+.history-grid::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 10px;
+}
+
+.history-item {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #0f172a;
+    border: 2px solid #475569;
+    flex-shrink: 0;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.history-item:hover {
+    border-color: #3b82f6;
+    transform: scale(1.08);
+}
+
+.history-item img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Avatar Generator</title>
+
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https://api.dicebear.com/7.x/bottts/svg?seed=Favicon"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="card-container">
+      <h2>Avatar Generator</h2>
+
+      <div class="avatar-display-wrapper">
+        <div class="avatar-circle" id="avatarCircle">
+          <img
+            id="avatarImg"
+            src="https://api.dicebear.com/7.x/bottts/svg?seed=Welcome"
+            alt="Avatar"
+          />
+        </div>
+      </div>
+
+      <div class="control-section">
+        <div class="input-group">
+          <label>CHOOSE STYLE</label>
+          <select id="styleSelect">
+            <option value="bottts">Robots (Bottts)</option>
+            <option value="adventurer">Adventurer</option>
+            <option value="avataaars">Human (Avataaars)</option>
+            <option value="lorelei">Anime (Lorelei)</option>
+            <option value="pixel-art">Pixel Art</option>
+            <option value="open-peeps">Hand-Drawn (Open Peeps)</option>
+            <option value="personas">Modern Vector (Personas)</option>
+            <option value="big-smile">Cartoony (Big Smile)</option>
+            <option value="miniavs">Minimal Avatars (Miniavs)</option>
+            <option value="micah">Abstract Portraits (Micah)</option>
+            <option value="croodles">Doodles (Croodles)</option>
+            <option value="fun-emoji">Fun Emojis</option>
+            <option value="toon-head">Toon Heads</option>
+            <option value="identicon">Pattern (Identicon)</option>
+            <option value="initials">Letter Initials</option>
+            <option value="shapes">Geometric Shapes</option>
+            <option value="rings">Ring Waves</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label>TYPE A NAME</label>
+          <input
+            type="text"
+            id="seedInput"
+            placeholder="Type anything..."
+            value="Welcome"
+          />
+        </div>
+
+        <div class="input-group">
+          <div class="label-row">
+            <label>EXPORT RESOLUTION</label>
+            <span id="sizeValue" class="badge">512 × 512 px</span>
+          </div>
+          <input
+            type="range"
+            id="sizeSlider"
+            min="128"
+            max="1024"
+            step="64"
+            value="512"
+          />
+        </div>
+
+        <div class="input-group format-group">
+          <label>DOWNLOAD FORMAT</label>
+          <div class="radio-options">
+            <label class="radio-label">
+              <input type="radio" name="downloadFormat" value="svg" checked />
+              SVG
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="downloadFormat" value="png" /> PNG
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="button-group">
+        <button id="randomBtn" class="btn btn-secondary">
+          <span class="dice-icon">🎲</span> Random
+        </button>
+        <button
+          id="favoriteBtn"
+          class="btn btn-secondary"
+          title="Save to Favorites"
+        >
+          <span>⭐</span> Favorite
+        </button>
+        <button id="copyBtn" class="btn btn-secondary">
+          <span class="copy-icon">🔗</span> Copy URL
+        </button>
+        <button id="downloadBtn" class="btn btn-primary">
+          <span class="download-icon">📥</span> Download
+        </button>
+      </div>
+
+      <div class="toggle-container">
+        <button id="toggleFavsBtn" class="btn btn-toggle">
+          Show Favorites ⭐
+        </button>
+        <button id="toggleHistoryBtn" class="btn btn-toggle">
+          Show Recents ⏳
+        </button>
+      </div>
+
+      <div id="favoritesSection" class="history-section collapsible hidden">
+        <h3>Saved Favorites ⭐</h3>
+        <div id="favoritesGrid" class="history-grid"></div>
+      </div>
+
+      <div id="historySection" class="history-section collapsible hidden">
+        <h3>Recent Generations</h3>
+        <div id="historyGrid" class="history-grid"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
